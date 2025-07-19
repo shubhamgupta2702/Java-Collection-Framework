@@ -1,7 +1,9 @@
 package linkedlistinJava;
 
 
-class Node {
+
+
+ class Node {
     int data;
     Node next;
 
@@ -10,8 +12,6 @@ class Node {
         this.next = null;
     }
 }
-
-
 public class LL {
 
     static Node convert2LL(int[] arr) {
