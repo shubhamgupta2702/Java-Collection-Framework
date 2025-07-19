@@ -3,6 +3,7 @@ package linkedlistinJava;
 
 public class DeleteHead {
 
+    //delete head
     static Node deleteHead(Node head){
         Node temp = head;
         head = head.next;
