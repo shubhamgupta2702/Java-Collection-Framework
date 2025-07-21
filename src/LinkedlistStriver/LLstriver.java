@@ -118,6 +118,59 @@ public class LLstriver {
         return head;
     }
 
+    static Node inseratK(Node head, int el, int k){
+        if(head == null){
+            if(k == 1){
+                return new Node(el);
+            }
+            else{
+                return null;
+            }
+        }
+        if(k == 1){
+            Node temp = new Node(el);
+            temp.next = head;
+            return temp;
+        }
+        int cnt = 0;
+        Node temp = head;
+        while(temp != null){
+            cnt++;
+            if(cnt == k-1){
+                Node x = new Node(el);
+                x.next = temp.next;
+                temp.next = x;
+                return head;
+            }
+            temp = temp.next;
+        }
+        return null;
+    }
+    static Node insertBeforeValue(Node head, int el, int val){
+        if(head == null)return null;
+        if(head.data == val){
+            Node x = new Node(el);
+            x.next = head;
+            return x;
+        }
+        Node temp = head;
+        int flag = 0;
+        while(temp.next != null){
+            if(temp.next.data == val){
+                Node x = new Node(el);
+                x.next = temp.next;
+                temp.next = x;
+                flag = 1;
+                return head;
+            }
+            temp = temp.next;
+        }
+        if(flag == 0){
+            return null;
+        }
+        return head;
+    }
+
     public static void main(String[] args) {
 
         int[] arr = {23, 21, 45, 65, 54, 74, 92, 43};
@@ -134,7 +187,11 @@ public class LLstriver {
 
 //        head = insertatHead(head, 69);
 
-        head = inseratTail(head, 999);
+//        head = inseratTail(head, 999);
+
+//        head = inseratK(head, 54, 8);
+
+        head = insertBeforeValue(head, 100, 21);
         traverse(head);
 
 
